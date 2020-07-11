@@ -11,9 +11,9 @@ while (flag) {
 
     switch (userInput) {
         case 'read':
-            const data = database.read().split('\n')
+            const data = database.read()
             for (let i = 0; i < data.length; i++) {
-                console.log(`Line ${i}: ${data[i]}`)
+                console.log(`TODO ${i}: ${data[i]}`)
             }
             break
 
@@ -23,6 +23,10 @@ while (flag) {
 
         case 'remove':
             database.remove()
+            break
+
+        case 'update':
+            database.update()
             break
 
         case 'exit':

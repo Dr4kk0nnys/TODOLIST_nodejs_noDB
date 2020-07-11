@@ -13,18 +13,18 @@ class Database {
             throw err
         })
 
-        return data
+        return data.split('\n')
     }
 
     add() {
-        const data = this.getUserInput()
+        const data = this.getUserInput('What you want to add: ')
 
         /*
             * If the database is empty, there is no need
             * to add a '\n' at the start
             * so it just write the entire database
         */
-        const dbRead = this.read().split('\n')
+        const dbRead = this.read()
         if (dbRead[0] === '' && dbRead.length === 1) {
             fs.writeFileSync(this.databasePath, data)
             return
@@ -44,7 +44,7 @@ class Database {
             * it then removes that length from the array
             * and writes the array to the database
         */
-        const data = this.read().split('\n')
+        const data = this.read()
         const line = this.getUserInput('Line you want to remove: ')
 
         // if the line isn't a number
@@ -66,10 +66,31 @@ class Database {
         console.log('Successfully removed the line!')
     }
 
-    getUserInput() {
+    update() {
+        const data = this.read()
+
+        const line = this.getUserInput('Line you want to update: ')
+        const newData = this.getUserInput('New value: ')
+
+        // Checking if the inputs are right
+        if (!/^\d+$/.test(line)) {
+            console.log('Line must be a number!');
+            return
+        }
+        if (data.length < line) {
+            console.log('Invalid line!')
+            return
+        }
+
+        data[line] = newData
+
+        fs.writeFileSync(this.databasePath, data.join('\n'))
+    }
+
+    getUserInput(question) {
         const input = PromptSync({ sigint: true })
 
-        return input('-> ')
+        return input(question)
     }
 }
 
