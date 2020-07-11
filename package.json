@@ -1,0 +1,23 @@
+{
+  "name": "textdatabase",
+  "version": "1.0.0",
+  "description": "The database is just a hidden .txt file",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dr4kk0nnys/TODOLIST_nodejs_noDB.git"
+  },
+  "author": "Dr4kk0nnys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dr4kk0nnys/TODOLIST_nodejs_noDB/issues"
+  },
+  "homepage": "https://github.com/Dr4kk0nnys/TODOLIST_nodejs_noDB#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
