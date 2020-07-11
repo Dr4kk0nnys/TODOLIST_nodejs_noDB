@@ -19,6 +19,16 @@ class Database {
     add() {
         const data = this.getUserInput()
 
+        /*
+            * If the database is empty, there is no need
+            * to add a '\n' at the start
+            * so it just write the entire database
+        */
+        if (this.read().split('\n') == '') {
+            fs.writeFileSync(this.databasePath, data)
+            return
+        }
+
         fs.appendFileSync(this.databasePath, '\n' + data)
 
         console.log('Successfully passed the data to the database!')
