@@ -24,7 +24,8 @@ class Database {
             * to add a '\n' at the start
             * so it just write the entire database
         */
-        if (this.read().split('\n') == '') {
+        const dbRead = this.read().split('\n')
+        if (dbRead[0] === '' && dbRead.length === 1) {
             fs.writeFileSync(this.databasePath, data)
             return
         }
