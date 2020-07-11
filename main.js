@@ -7,6 +7,7 @@ const database = new Database('.database.txt')
 
 let flag = true
 while (flag) {
+
     const userInput = input('> ')
 
     switch (userInput) {
