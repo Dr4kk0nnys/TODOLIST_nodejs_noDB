@@ -38,7 +38,7 @@ class Database {
     getUserInput() {
         const input = PromptSync({ sigint: true })
 
-        return input('> ')
+        return input('-> ')
     }
 }
 
