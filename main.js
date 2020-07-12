@@ -13,9 +13,7 @@ while (flag) {
     switch (userInput) {
         case 'read':
             const data = database.read()
-            for (let i = 0; i < data.length; i++) {
-                console.log(`TODO ${i}: ${data[i]}`)
-            }
+            data.filter((value, index) => console.log(`TODO ${index}: ${value}`))
             break
 
         case 'add':
