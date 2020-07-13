@@ -3,9 +3,9 @@ import PromptSync from 'prompt-sync'
 
 class Database {
     constructor(database_path) {
-        console.log('Database called!')
-
         this.databasePath = database_path
+
+        console.log('Database called!')
     }
 
     read() {
